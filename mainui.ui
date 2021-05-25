@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QLabel" name="left_img">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>512</width>
+        <height>512</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="line">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="right_img">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>512</width>
+        <height>512</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1100</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="file">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="action_open_file"/>
+   </widget>
+   <widget class="QMenu" name="effects">
+    <property name="title">
+     <string>图像特效</string>
+    </property>
+    <widget class="QMenu" name="menu_4">
+     <property name="title">
+      <string>百叶窗</string>
+     </property>
+     <addaction name="actionshuiping_2"/>
+     <addaction name="actionchuizhi_2"/>
+    </widget>
+    <widget class="QMenu" name="menu_3">
+     <property name="title">
+      <string>栅条特效</string>
+     </property>
+     <addaction name="actionshuiping"/>
+     <addaction name="actionchuizhi"/>
+    </widget>
+    <widget class="QMenu" name="menu">
+     <property name="title">
+      <string>图像扫描</string>
+     </property>
+     <addaction name="action_split_down"/>
+     <addaction name="action_split_up"/>
+     <addaction name="action_split_right"/>
+     <addaction name="action_split_left"/>
+    </widget>
+    <addaction name="menu"/>
+    <addaction name="action_move"/>
+    <addaction name="action_fly"/>
+    <addaction name="action_expand"/>
+    <addaction name="action_shrink"/>
+    <addaction name="menu_3"/>
+    <addaction name="action_8"/>
+    <addaction name="menu_4"/>
+    <addaction name="action_10"/>
+   </widget>
+   <addaction name="file"/>
+   <addaction name="effects"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_open_file">
+   <property name="text">
+    <string>打开BMP文件</string>
+   </property>
+  </action>
+  <action name="action_move">
+   <property name="text">
+    <string>图像移动</string>
+   </property>
+  </action>
+  <action name="action_fly">
+   <property name="text">
+    <string>交叉飞入</string>
+   </property>
+  </action>
+  <action name="action_expand">
+   <property name="text">
+    <string>中间扩张</string>
+   </property>
+  </action>
+  <action name="action_shrink">
+   <property name="text">
+    <string>中间收缩</string>
+   </property>
+  </action>
+  <action name="action_8">
+   <property name="text">
+    <string>图像渐显</string>
+   </property>
+  </action>
+  <action name="action_10">
+   <property name="text">
+    <string>马赛克</string>
+   </property>
+  </action>
+  <action name="actionshuiping">
+   <property name="text">
+    <string>水平栅条</string>
+   </property>
+  </action>
+  <action name="actionchuizhi">
+   <property name="text">
+    <string>垂直栅条</string>
+   </property>
+  </action>
+  <action name="actionshuiping_2">
+   <property name="text">
+    <string>水平百叶窗</string>
+   </property>
+  </action>
+  <action name="actionchuizhi_2">
+   <property name="text">
+    <string>垂直百叶窗</string>
+   </property>
+  </action>
+  <action name="action_split_down">
+   <property name="text">
+    <string>向下扫描</string>
+   </property>
+  </action>
+  <action name="action_split_up">
+   <property name="text">
+    <string>向上扫描</string>
+   </property>
+  </action>
+  <action name="action_split_right">
+   <property name="text">
+    <string>向右扫描</string>
+   </property>
+  </action>
+  <action name="action_split_left">
+   <property name="text">
+    <string>向左扫描</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
