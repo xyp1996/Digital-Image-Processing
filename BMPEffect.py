@@ -1,21 +1,20 @@
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from mainui import Ui_MainWindow
+from ui.mainui import Ui_MainWindow
 import sys
 
 from ImageFile import ImageFile
 
-from ImageHandleSplitViewDown import ImageHandleSplitViewDown
-from ImageHandleSplitViewUp import ImageHandleSplitViewUp
-from ImageHandleSplitViewRight import ImageHandleSplitViewRight
-from ImageHandleSplitViewLeft import ImageHandleSplitViewLeft
-from ImageHandleExpand import ImageHandleExpand
-from ImageHandleShrink import ImageHandleShrink
-from ImageHandleJianxian import ImageHandleJianxian
-from ImageHandleHshade import ImageHandleHshade
-from ImageHandleMasaike import ImageHandleMasaike
-
-from ImageHandleMove import ImageHandleMove
-from ImageHandleFly import ImageHandleFly
+from texiao.ImageHandleSplitViewDown import ImageHandleSplitViewDown
+from texiao.ImageHandleSplitViewUp import ImageHandleSplitViewUp
+from texiao.ImageHandleSplitViewRight import ImageHandleSplitViewRight
+from texiao.ImageHandleSplitViewLeft import ImageHandleSplitViewLeft
+from texiao.ImageHandleExpand import ImageHandleExpand
+from texiao.ImageHandleShrink import ImageHandleShrink
+from texiao.ImageHandleJianxian import ImageHandleJianxian
+from texiao.ImageHandleHshade import ImageHandleHshade
+from texiao.ImageHandleMasaike import ImageHandleMasaike
+from texiao.ImageHandleMove import ImageHandleMove
+from texiao.ImageHandleFly import ImageHandleFly
 
 showSpeed = 0.01  # 特效显示中，图像显示速度控制
 
@@ -76,7 +75,6 @@ class MyUI(QMainWindow, Ui_MainWindow):
         self.action_Hshade.triggered.connect(self.imageHshade)
 
     def splitViewDown(self):
-        print(self.imageHandleShrink.isFinished())
         if not self.imageHandleSplitViewDown.isFinished():
             self.imageHandleSplitViewDown.start()
 

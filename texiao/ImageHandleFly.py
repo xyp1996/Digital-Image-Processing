@@ -23,19 +23,17 @@ class ImageHandleFly(QThread):
         rowTop, colTop, rgbaTop = top.shape
         rowButtom, colButtom, rgbaButtom = buttom.shape
         for left, right in zip(range(row), range(row)[::-1]):
-            print(left, right)
-            # for i in range(left):
-            #     imgTemp = top[: rowTop, colTop - left:colTop]
-            #     rowTemp, colTemp, rgbaTemp = imgTemp.shape
-            #     for h in range(colTemp):
-            #         for w in range(rowTemp):
-            #             imgNew[w, h] = imgTemp[w, h]
+            for i in range(left):
+                imgTemp = top[: rowTop, colTop - left:colTop]
+                rowTemp, colTemp, rgbaTemp = imgTemp.shape
+                for h in range(colTemp):
+                    for w in range(rowTemp):
+                        imgNew[w, h] = imgTemp[w, h]
             for i in range(right):
                 imgTemp = buttom[: rowButtom, : colButtom - i]
                 rowTemp, colTemp, rgbaTemp = imgTemp.shape
-                print("imgTemp: ", rowTemp, colTemp, rgbaTemp)
                 for h in range(colTemp):
                     for w in range(rowTemp):
                         imgNew[w + center, i] = imgTemp[w, i]
             self.resultImage.emit(imgNew)
-            # time.sleep(self.showSpeed)
+            time.sleep(self.showSpeed)
