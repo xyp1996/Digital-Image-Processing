@@ -11,6 +11,7 @@ from texiao.ImageHandleSplitViewLeft import ImageHandleSplitViewLeft
 from texiao.ImageHandleExpand import ImageHandleExpand
 from texiao.ImageHandleShrink import ImageHandleShrink
 from texiao.ImageHandleJianxian import ImageHandleJianxian
+from texiao.ImageHandleVshade import ImageHandleVshade
 from texiao.ImageHandleHshade import ImageHandleHshade
 from texiao.ImageHandleMasaike import ImageHandleMasaike
 from texiao.ImageHandleMove import ImageHandleMove
@@ -57,6 +58,8 @@ class MyUI(QMainWindow, Ui_MainWindow):
         # 百叶窗特效
         self.imageHandleHshade = ImageHandleHshade(self.bmpImage, showSpeed)
         self.imageHandleHshade.resultImage.connect(self.flushRightImage)
+        self.imageHandleVshade = ImageHandleVshade(self.bmpImage, showSpeed)
+        self.imageHandleVshade.resultImage.connect(self.flushRightImage)
         # 马赛克特效
         self.imageHandleMasaike = ImageHandleMasaike(self.bmpImage, showSpeed)
         self.imageHandleMasaike.resultImage.connect(self.flushRightImage)
@@ -73,6 +76,7 @@ class MyUI(QMainWindow, Ui_MainWindow):
         self.action_Jianxian.triggered.connect(self.imageJianxian)
         self.action_Masaike.triggered.connect(self.imageMasaike)
         self.action_Hshade.triggered.connect(self.imageHshade)
+        self.action_Vshade.triggered.connect(self.imageVshade)
 
     def splitViewDown(self):
         if not self.imageHandleSplitViewDown.isFinished():
@@ -114,17 +118,21 @@ class MyUI(QMainWindow, Ui_MainWindow):
         if not self.imageHandleHshade.isFinished():
             self.imageHandleHshade.start()
 
+    def imageVshade(self):
+        if not self.imageHandleVshade.isFinished():
+            self.imageHandleVshade.start()
+
     def imageMasaike(self):
         if not self.imageHandleMasaike.isFinished():
             self.imageHandleMasaike.start()
 
     def initLeftImage(self):
-        img = self.imageFile.ndarry2iamge(self.bmpImage)
+        img = self.imageFile.ndarry2image(self.bmpImage)
         # 使用label进行显示
         self.left_img.setPixmap(img)
 
     def flushRightImage(self, img):
-        img = self.imageFile.ndarry2iamge(img)
+        img = self.imageFile.ndarry2image(img)
         self.right_img.setPixmap(img)
 
 

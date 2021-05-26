@@ -62,7 +62,7 @@ class ImageFile():
         f.close()
         return img
 
-    def ndarry2iamge(self, ndarry):
+    def ndarry2image(self, ndarry):
         # ndarray 转 图片
         ndarry = ndarry.astype("uint8")
         # ndarry = cv2.cvtColor(ndarry, cv2.COLOR_BGR2RGB)
