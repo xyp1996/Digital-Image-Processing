@@ -10,17 +10,20 @@ from ImageHandleSplitViewRight import ImageHandleSplitViewRight
 from ImageHandleSplitViewLeft import ImageHandleSplitViewLeft
 from ImageHandleExpand import ImageHandleExpand
 from ImageHandleShrink import ImageHandleShrink
+from ImageHandleJianxian import ImageHandleJianxian
+from ImageHandleHshade import ImageHandleHshade
+from ImageHandleMasaike import ImageHandleMasaike
 
 from ImageHandleMove import ImageHandleMove
 from ImageHandleFly import ImageHandleFly
 
-showSpeed = 0.001  # 特效显示中，图像显示速度控制
+showSpeed = 0.01  # 特效显示中，图像显示速度控制
 
 class MyUI(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(MyUI, self).__init__()
         self.imageFile = ImageFile()
-        self.bmpImage = self.imageFile.getBMP('/home/jett/Desktop/test/lena512.bmp')
+        self.bmpImage = self.imageFile.getBMP('lena256.bmp')
         self.createThread()
 
         self.setupUi(self)
@@ -49,6 +52,15 @@ class MyUI(QMainWindow, Ui_MainWindow):
         # 中间收缩特效
         self.imageHandleShrink = ImageHandleShrink(self.bmpImage, showSpeed)
         self.imageHandleShrink.resultImage.connect(self.flushRightImage)
+        # 图像渐显特效
+        self.imageHandleJianxian = ImageHandleJianxian(self.bmpImage, showSpeed)
+        self.imageHandleJianxian.resultImage.connect(self.flushRightImage)
+        # 百叶窗特效
+        self.imageHandleHshade = ImageHandleHshade(self.bmpImage, showSpeed)
+        self.imageHandleHshade.resultImage.connect(self.flushRightImage)
+        # 马赛克特效
+        self.imageHandleMasaike = ImageHandleMasaike(self.bmpImage, showSpeed)
+        self.imageHandleMasaike.resultImage.connect(self.flushRightImage)
 
     def initEvent(self):
         self.action_split_down.triggered.connect(self.splitViewDown)
@@ -59,6 +71,9 @@ class MyUI(QMainWindow, Ui_MainWindow):
         self.action_fly.triggered.connect(self.imageFly)
         self.action_expand.triggered.connect(self.imageExpand)
         self.action_shrink.triggered.connect(self.imageShrink)
+        self.action_Jianxian.triggered.connect(self.imageJianxian)
+        self.action_Masaike.triggered.connect(self.imageMasaike)
+        self.action_Hshade.triggered.connect(self.imageHshade)
 
     def splitViewDown(self):
         print(self.imageHandleShrink.isFinished())
@@ -92,6 +107,18 @@ class MyUI(QMainWindow, Ui_MainWindow):
     def imageShrink(self):
         if not self.imageHandleShrink.isFinished():
             self.imageHandleShrink.start()
+
+    def imageJianxian(self):
+        if not self.imageHandleJianxian.isFinished():
+            self.imageHandleJianxian.start()
+
+    def imageHshade(self):
+        if not self.imageHandleHshade.isFinished():
+            self.imageHandleHshade.start()
+
+    def imageMasaike(self):
+        if not self.imageHandleMasaike.isFinished():
+            self.imageHandleMasaike.start()
 
     def initLeftImage(self):
         img = self.imageFile.ndarry2iamge(self.bmpImage)

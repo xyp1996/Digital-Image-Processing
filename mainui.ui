@@ -91,8 +91,8 @@
      <property name="title">
       <string>百叶窗</string>
      </property>
-     <addaction name="actionshuiping_2"/>
-     <addaction name="actionchuizhi_2"/>
+     <addaction name="action_Hshade"/>
+     <addaction name="action_Vshade"/>
     </widget>
     <widget class="QMenu" name="menu_3">
      <property name="title">
@@ -116,9 +116,9 @@
     <addaction name="action_expand"/>
     <addaction name="action_shrink"/>
     <addaction name="menu_3"/>
-    <addaction name="action_8"/>
+    <addaction name="action_Jianxian"/>
     <addaction name="menu_4"/>
-    <addaction name="action_10"/>
+    <addaction name="action_Masaike"/>
    </widget>
    <addaction name="file"/>
    <addaction name="effects"/>
@@ -149,12 +149,12 @@
     <string>中间收缩</string>
    </property>
   </action>
-  <action name="action_8">
+  <action name="action_Jianxian">
    <property name="text">
     <string>图像渐显</string>
    </property>
   </action>
-  <action name="action_10">
+  <action name="action_Masaike">
    <property name="text">
     <string>马赛克</string>
    </property>
@@ -169,12 +169,12 @@
     <string>垂直栅条</string>
    </property>
   </action>
-  <action name="actionshuiping_2">
+  <action name="action_Hshade">
    <property name="text">
     <string>水平百叶窗</string>
    </property>
   </action>
-  <action name="actionchuizhi_2">
+  <action name="action_Vshade">
    <property name="text">
     <string>垂直百叶窗</string>
    </property>
