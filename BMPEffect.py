@@ -23,7 +23,7 @@ class MyUI(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(MyUI, self).__init__()
         self.imageFile = ImageFile()
-        self.bmpImage = self.imageFile.getBMP('lena256.bmp')
+        self.bmpImage = self.imageFile.getBMP('lena512.bmp')
         self.createThread()
 
         self.setupUi(self)
@@ -128,7 +128,6 @@ class MyUI(QMainWindow, Ui_MainWindow):
 
     def initLeftImage(self):
         img = self.imageFile.ndarry2image(self.bmpImage)
-        # 使用label进行显示
         self.left_img.setPixmap(img)
 
     def flushRightImage(self, img):

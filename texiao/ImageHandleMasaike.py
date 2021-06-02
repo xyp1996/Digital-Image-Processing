@@ -41,9 +41,13 @@ class ImageHandleMasaike(QThread):
         temp3 = [[i, j] for i in temp1 for j in temp2]
         random.shuffle(temp3)
 
-        num = int(len(temp3) / limit)
+        total = len(temp3)
+        num = int(total / limit)
         for i in range(limit):
-            for zuobiao in temp3[i * num:(i + 1) * num]:
+            start = i * num
+            end = (i + 1) * num
+            end = total if i+1 == limit and end < total else end
+            for zuobiao in temp3[start:end]:
                 w, h = zuobiao
                 imgNew[w, h] = self.image[w, h]
             self.resultImage.emit(imgNew)
